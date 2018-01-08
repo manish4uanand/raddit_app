@@ -49,3 +49,4 @@ group :development do
 	gem 'pry-rails'
 end
 
+gem 'devise', '~> 4.2'
