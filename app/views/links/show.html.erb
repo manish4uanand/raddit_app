@@ -28,3 +28,23 @@
 		<%= @link.get_downvotes.size %>
 	<% end %>
 </div>
+
+
+<!-- Comments -->
+<h3 class="comments_title">
+	<%= @link.comments.count %> Comments
+</h3>
+
+<div id="comment">
+	<%= render :partial => "comments/comments", collection: @link.comments, as: :comment  %>
+</div>
+<% if current_user %>
+	<%= simple_form_for [@link, Comment.new] do |f| %>
+		<div class="form-group">
+			<%= f.text_area :body, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<%= f.submit "Add Comment", class: "btn btn-primary" %>
+		</div>
+	<% end %>
+<% end %>
